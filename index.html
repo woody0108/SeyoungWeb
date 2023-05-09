@@ -186,7 +186,7 @@
               class="btn btn-primary font-weight-bold py-3 px-5 mt-2"
               type="button"
               data-toggle="modal"
-              data-target="#exampleModalLong"
+              data-target="#serviceModal"
               >Read More</a
             >
           </div>
@@ -216,7 +216,7 @@
                   type="button"
                   class="btn btn-primary"
                   data-toggle="modal"
-                  data-target="#exampleModalLong"
+                  data-target="#serviceModal1"
                 >
                   <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
@@ -234,7 +234,7 @@
                   type="button"
                   class="btn btn-primary"
                   data-toggle="modal"
-                  data-target="#exampleModalLong"
+                  data-target="#serviceModal2"
                 >
                   <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
@@ -252,7 +252,7 @@
                   type="button"
                   class="btn btn-primary"
                   data-toggle="modal"
-                  data-target="#exampleModalLong"
+                  data-target="#serviceModal3"
                 >
                   <i class="fa fa-2x fa-plus text-white"></i>
                 </a>
@@ -376,14 +376,11 @@
                   <p>abcdefghiasdf</p>
                   <p>mail :</p>
                   <div class="position-relative mb-2">
-                    <a class="btn btn-outline-primary btn-square mr-1" href="#"
-                      ><i class="fab fa-twitter"></i
-                    ></a>
-                    <a class="btn btn-outline-primary btn-square mr-1" href="#"
-                      ><i class="fab fa-facebook-f"></i
-                    ></a>
-                    <a class="btn btn-outline-primary btn-square mr-1" href="#"
-                      ><i class="fab fa-linkedin-in"></i
+                    <a
+                      class="btn btn-outline-primary btn-square mr-1"
+                      data-toggle="modal"
+                      data-target="#adModal1"
+                      ><i class="fas fa-address-card"></i
                     ></a>
                   </div>
                 </div>
@@ -685,11 +682,12 @@
                   Our Office
                 </h5>
                 <p class="mb-4 m-md-0">
-                  289, Yongsan-gil, Cheongha-myeon, Buk-gu, Pohang-si,
-                  Gyeongsangbuk-do, Republic of Korea
+                  SHOP : 289, Yongsan-gil, Cheongha-myeon, Buk-gu, Pohang-si,
+                  Republic of Korea
                 </p>
                 <p class="mb-4 m-md-0">
-                  경상북도 포항시 북구 청하면 용산길 289 (청하면)
+                  ULSAN OFFICE : 91, Sinjeong-ro, Nam-gu, Ulsan, Republic of
+                  Korea
                 </p>
               </div>
             </div>
@@ -701,7 +699,8 @@
                 >
                   Email Us
                 </h5>
-                <p class="mb-4 m-md-0">seyoung@seyoungi.com</p>
+                <p class="mb-4 m-md-0">Ceo : seyoung@seyoungi.com</p>
+                <p class="mb-4 m-md-0">Qc : sskim@seyoungi.com</p>
               </div>
             </div>
             <div class="col-md-4">
@@ -712,7 +711,8 @@
                 >
                   Call Us
                 </h5>
-                <p class="m-0">+012 345 6789</p>
+                <p class="m-0">Tel. +82-54-262-7480.2</p>
+                <p class="m-0">Fax. +82-54-262-7481</p>
               </div>
             </div>
           </div>
@@ -816,17 +816,54 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModalLong"
+      id="serviceModal"
       tabindex="-1"
       role="dialog"
-      aria-labelledby="exampleModalLongTitle"
+      aria-labelledby="serviceModalTitle"
       aria-hidden="true"
     >
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">
-              Solar Energy System
+            <h5 class="modal-title" id="serviceModalTitle">Seyoung Industry</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid mb-4"
+              src="img/about.jpg"
+              width="300px"
+              height="300px"
+              alt=""
+            />
+            <p>사진3 회사설명1</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+
+    <!-- Modal1 -->
+    <div
+      class="modal fade"
+      id="serviceModal1"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="serviceModal1Title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceModal1Title">
+              Seyoung Industry
             </h5>
             <button
               type="button"
@@ -838,7 +875,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <img class="img-fluid mb-4" src="img/carousel-1.jpg" alt="" />
+            <img class="img-fluid mb-4" src="img/product-1.jpg" alt="" />
             <p>사진1 회사설명1</p>
             <p>사진1 회사설명2</p>
             <p>사진1 회사설명3</p>
@@ -847,7 +884,149 @@
         </div>
       </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal1 -->
+    <!-- Modal2 -->
+    <div
+      class="modal fade"
+      id="serviceModal2"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="serviceModal2Title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceModal2Title">
+              Seyoung Industry
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid mb-4" src="img/product-2.jpg" alt="" />
+            <p>사진1 회사설명1</p>
+            <p>사진1 회사설명2</p>
+            <p>사진1 회사설명3</p>
+            <p>사진1 회사설명4</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal2 -->
+    <!-- Modal3 -->
+    <div
+      class="modal fade"
+      id="serviceModal3"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="serviceModal3Title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="serviceModal3Title">
+              Seyoung Industry
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img class="img-fluid mb-4" src="img/product-3.jpg" alt="" />
+            <p>사진3 회사설명1</p>
+            <p>사진3 회사설명2</p>
+            <p>사진3 회사설명3</p>
+            <p>사진3 회사설명4</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal3 -->
+
+    <!-- AdModal1 -->
+    <div
+      class="modal fade"
+      id="adModal1"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="adModal1Title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="adModal1Title">Seyoung Industry</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid mb-4"
+              src="img/team-1.jpg"
+              style="float: right; width: 100px; height: 100px"
+              alt=""
+            />
+            <p>NUM :</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AdModal1 -->
+
+    <!-- AdModal2 -->
+    <div
+      class="modal fade"
+      id="adModal2"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="adModal1Title"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="adModal1Title">Seyoung Industry</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <img
+              class="img-fluid mb-4"
+              src="img/team-2.jpg"
+              style="float: right; width: 100px; height: 100px"
+              alt=""
+            />
+            <p>NUM :</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- AdModal2 -->
 
     <!-- Scroll to Bottom -->
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
