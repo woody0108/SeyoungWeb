@@ -1,10 +1,13 @@
 <?php
   // composer로 다운로드된 라이브러리 참조하기
   require_once 'C:/Users/woody/vendor/autoload.php';
-  
+  require_once 'PHPMailer/src/PHPMailer.php';
+
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\SMTP;
   use PHPMailer\PHPMailer\Exception;
+  
+
   
   // PHPMailer 선언
   $mail = new PHPMailer(true);
@@ -22,17 +25,17 @@
     // SMTP 보안 프초트콜
     $mail->SMTPSecure = "ssl";
     // gmail 유저 아이디
-    $mail->Username = "woody08432@gmail.com";
+    $mail->Username = "woody08431@gmail.com";
     // gmail 패스워드
-    $mail->Password ="jeon0108!";
+    $mail->Password ="ffdkdzrjrqmgzhaw";
     // 인코딩 셋
     $mail->CharSet = 'utf-8'; 
     $mail->Encoding = "base64";
     
     // 보내는 사람
-    $mail->setFrom('woody08432@gmail.com', 'Tester');
+    $mail->setFrom('woody08431@gmail.com', 'Tester');
     // 받는 사람
-    $mail->AddAddress("woody08432@gmail.com", "wb"); 
+    $mail->AddAddress("woody08431@gmail.com", "wb"); 
     
     // 본문 html 타입 설정
     $mail->isHTML(true);
@@ -44,7 +47,7 @@
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail->Send();
     echo "Message has been sent";
-  } catch (phpmailerException $e) {
+  } catch (Exception $e) {
     echo $e->errorMessage();
   } catch (Exception $e) {
     echo $e->getMessage();

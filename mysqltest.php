@@ -4,13 +4,14 @@
     <title>MySql-PHP 연결 테스트</title> 
 </head> 
 <body> 
-    <?php echo "MySql 연결 테스트<br>"; $db = mysqli_connect("localhost", "root", "7535", "exam"); 
+    <?php 
+    echo "MySql 연결 테스트<br>"; $db = mysqli_connect("localhost", "root", "7535", "exam"); 
     if($db){ echo "connect : 성공<br>"; 
     } else{ echo "disconnect : 실패<br>"; 
     } 
     $result = mysqli_query($db, 'SELECT VERSION() as VERSION'); 
-    $data = mysqli_fetch_assoc($result); echo $data['VERSION']; ?> 
+    $data = mysqli_fetch_assoc($result); echo $data['VERSION']; 
+    ?> 
 </body> 
 </html> 
-[출처] Apache, php, mysql 설치 & 연동하기|작성자 손블리
 
