@@ -54,7 +54,7 @@ $message = strip_tags(htmlspecialchars($_POST['message']));
     // 제목
     $mail->Subject = $m_subject;
     // 본문 (HTML 전용)
-    $mail->Body    = $message;
+    $mail->Body    = $email . "  :  " .$message;
     // 본문 (non-HTML 전용)
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
     $mail->Send();
