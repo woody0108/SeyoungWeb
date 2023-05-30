@@ -1,6 +1,6 @@
 <?php
   // composer로 다운로드된 라이브러리 참조하기
-  require_once 'C:/Users/woody/vendor/autoload.php';
+  require_once 'vendor/autoload.php';
   require_once 'PHPMailer/src/PHPMailer.php';
 
   use PHPMailer\PHPMailer\PHPMailer;
