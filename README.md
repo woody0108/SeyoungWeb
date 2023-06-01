@@ -4,6 +4,7 @@
 
 ## 🖥 Desc
 * 회사 소개 사이트
+* 사이트 : https://www.seyoungi.com
 * 플랫폼 : PC
 * 개발 엔진 : HTML, PHP, APACHE
 * 개발 인원 : 1인
