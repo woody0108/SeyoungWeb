@@ -10,17 +10,22 @@ Seyoung Industry / 세영인더스트리 공식 홈페이지 저장소입니다.
 
 ## Purpose
 
-해외 고객에게 Seyoung Industry의 플랜트 제작 역량을 보여주기 위한 회사 소개형 홈페이지입니다. 별도 백엔드 서버 없이 정적 HTML/CSS/JavaScript 파일만으로 운영되며, NAS의 `web` 공유 폴더에 바로 배포할 수 있도록 구성했습니다.
+해외 고객에게 Seyoung Industry의 플랜트 제작 역량과 주요 프로젝트 경험을 보여주기 위한 회사 소개형 홈페이지입니다. 별도 백엔드 서버 없이 정적 HTML/CSS/JavaScript 파일만으로 구성되어, Synology NAS의 `web` 공유 폴더에서 직접 운영할 수 있습니다.
+
+## Development Period
+
+- Initial development: 2023.05 ~ 2023.06
+- Homepage renewal: 2026.07 ~ 2026.09
 
 ## Technical Summary
 
-- `index.html` 하나를 중심으로 구성된 정적 사이트
-- `css/style.css`, `js/main.js`만 사용하는 가벼운 구조
-- Synology Web Station에서 직접 서비스 가능
-- PHP, DB, Node 서버, 빌드 과정 없음
-- `.htaccess`로 HTTP 및 non-www 주소를 canonical URL로 정리
-- `robots.txt`, `sitemap.xml`, canonical meta, Open Graph, JSON-LD 적용
-- GitHub는 운영 파일 백업 및 변경 이력 관리 용도
+- Single-page static website based on `index.html`
+- Lightweight frontend using only HTML, CSS and vanilla JavaScript
+- No PHP, database, Node server or build process required
+- Direct deployment through Synology Web Station
+- GitHub used for source backup and change history
+- Domain and HTTPS handled through Gabia DNS and Synology certificate settings
+- `.htaccess` used to normalize public access to the primary HTTPS domain
 
 ## File Structure
 
@@ -30,11 +35,10 @@ css/style.css   Styles
 js/main.js      UI interaction
 img/            Site images and favicon assets
 .htaccess       HTTPS / www redirect rule
-robots.txt      Search crawler guide
-sitemap.xml     Search engine sitemap
+favicon.ico     Browser favicon
 ```
 
-## Current Homepage Content
+## Homepage Content
 
 - Company overview and key facts
 - Products & Services
@@ -46,33 +50,18 @@ sitemap.xml     Search engine sitemap
   - Packing & Delivery
 - Project Experience
 - Global References
-- Contact information with Google Maps, tel/fax and email links
+- Contact information with map link, tel/fax and email links
 
-## SEO Focus
+## 2026 Renewal Scope
 
-Primary title:
-
-```text
-Seyoung Industry / 세영인더스트리
-```
-
-Main search direction:
-
-- Seyoung
-- Seyoung Industry
-- industrial heater
-- fired heater
-- plant fabrication
-- chemical process plant
-- refinery equipment
-- welding
-- inspection and testing
-- field service
-- packing and delivery
-- 세영인더스트리
-- 전인동
-- 플렌트
-- 화학공정
+- Rebuilt the old template-based site into a cleaner static homepage
+- Removed unused PHP mailer, template libraries and legacy assets
+- Reworked the content for international customers
+- Added service cards with actual work-category photos
+- Updated project experience and major company references
+- Added direct contact links by role
+- Added company location, telephone and fax information
+- Prepared the site for simple NAS-based operation without a separate web server stack
 
 ## Deployment
 
@@ -88,10 +77,10 @@ seyoungi.com       80 / 443   -> web
 Recommended public result:
 
 ```text
-https://www.seyoungi.com/      200 OK
-http://www.seyoungi.com/       301 -> https://www.seyoungi.com/
-http://seyoungi.com/           301 -> https://www.seyoungi.com/
-https://seyoungi.com/          valid certificate, then canonical redirect
+https://www.seyoungi.com/      Main public URL
+http://www.seyoungi.com/       Redirect to HTTPS www
+http://seyoungi.com/           Redirect to HTTPS www
+https://seyoungi.com/          Valid HTTPS, then redirect to HTTPS www
 ```
 
 ## Development Notes
@@ -100,14 +89,5 @@ Previous development notes:
 
 - https://app.notion.com/p/eec5a67a8f354be9b1a55d44f0678212
 
-2026 refresh summary:
+The current repository keeps only the files required to operate the public homepage. For normal updates, edit the static files, push to GitHub, then copy the same files to the Synology `web` folder.
 
-- Rebuilt the old template site into a clean static company homepage
-- Removed unused PHP mailer, template libraries and unused assets
-- Reworked the content for international customers
-- Added service cards, project references, company references and contact links
-- Added SEO files and canonical redirect settings for Google/Naver indexing
-
-## Maintenance
-
-For normal updates, edit the static files directly, update `sitemap.xml` when the public page changes, push to GitHub, then copy the same files to the Synology `web` folder.
