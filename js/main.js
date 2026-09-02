@@ -1,114 +1,87 @@
-(function ($) {
-    "use strict";
+(() => {
+  "use strict";
 
-    // Navbar on scrolling
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-            $('.navbar').fadeIn('slow').css('display', 'flex');
-        } else {
-            $('.navbar').fadeOut('slow').css('display', 'none');
-        }
+  const header = document.querySelector("[data-header]");
+  const menuButton = document.querySelector("[data-menu-button]");
+  const nav = document.querySelector("[data-nav]");
+  const backToTop = document.querySelector(".back-to-top");
+  const navLinks = [...document.querySelectorAll("[data-nav] a")];
+
+  const closeMenu = () => {
+    if (!menuButton || !nav) return;
+    menuButton.setAttribute("aria-expanded", "false");
+    nav.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+  };
+
+  menuButton?.addEventListener("click", () => {
+    const willOpen = menuButton.getAttribute("aria-expanded") !== "true";
+    menuButton.setAttribute("aria-expanded", String(willOpen));
+    nav?.classList.toggle("is-open", willOpen);
+    document.body.classList.toggle("menu-open", willOpen);
+  });
+
+  navLinks.forEach((link) => link.addEventListener("click", closeMenu));
+
+  const capabilityCards = [...document.querySelectorAll("[data-capability-card]")];
+  const activateCapabilityCard = (selectedCard) => {
+    capabilityCards.forEach((card) => {
+      const isSelected = card === selectedCard;
+      card.classList.toggle("is-active", isSelected);
+      card.setAttribute("aria-pressed", String(isSelected));
     });
+  };
 
-
-    // Smooth scrolling on the navbar links
-    $(".navbar-nav a, .btn-scroll").on('click', function (event) {
-        if (this.hash !== "") {
-            event.preventDefault();
-            
-            $('html, body').animate({
-                scrollTop: $(this.hash).offset().top - 45
-            }, 1500, 'easeInOutExpo');
-            
-            if ($(this).parents('.navbar-nav').length) {
-                $('.navbar-nav .active').removeClass('active');
-                $(this).closest('a').addClass('active');
-            }
-        }
+  capabilityCards.forEach((card) => {
+    card.addEventListener("click", () => activateCapabilityCard(card));
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      activateCapabilityCard(card);
     });
+  });
 
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrolled = window.scrollY > 24;
+      header?.classList.toggle("is-scrolled", scrolled);
+      backToTop?.classList.toggle("is-visible", window.scrollY > 640);
+    },
+    { passive: true }
+  );
 
-    // Scroll to Bottom
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 100) {
-            $('.scroll-to-bottom').fadeOut('slow');
-        } else {
-            $('.scroll-to-bottom').fadeIn('slow');
-        }
-    });
+  const sections = [...document.querySelectorAll("main section[id]")];
+  if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          navLinks.forEach((link) => {
+            link.classList.toggle("active", link.hash === `#${entry.target.id}`);
+          });
+        });
+      },
+      { rootMargin: "-35% 0px -58%", threshold: 0 }
+    );
+    sections.forEach((section) => sectionObserver.observe(section));
 
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -8%", threshold: 0.08 }
+    );
+    document.querySelectorAll(".reveal").forEach((item) => revealObserver.observe(item));
+  } else {
+    document.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
+  }
 
-    // Portfolio isotope and filter
-    var portfolioIsotope = $('.portfolio-container').isotope({
-        itemSelector: '.portfolio-item',
-        layoutMode: 'fitRows'
-    });
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
-        $(this).addClass('active');
-
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
-    });
-    
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
-    });
-
-
-    // Gallery carousel
-    $(".gallery-carousel").owlCarousel({
-        autoplay: false,
-        smartSpeed: 1500,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-        responsive: {
-            0:{
-                items:1
-            },
-            576:{
-                items:2
-            },
-            768:{
-                items:3
-            },
-            992:{
-                items:4
-            },
-            1200:{
-                items:5
-            }
-        }
-    });
-
-
-    // Testimonials carousel
-    $(".testimonial-carousel").owlCarousel({
-        autoplay: true,
-        smartSpeed: 1500,
-        items: 1,
-        dots: false,
-        loop: true,
-        nav : true,
-        navText : [
-            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
-            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
-        ],
-    });
-    
-})(jQuery);
-
+  document.querySelectorAll("[data-year]").forEach((item) => {
+    item.textContent = String(new Date().getFullYear());
+  });
+})();
