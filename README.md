@@ -15,7 +15,7 @@ Seyoung Industry / 세영인더스트리 공식 홈페이지 저장소입니다.
 ## Development Period
 
 - Initial development: 2023.05 ~ 2023.06
-- Homepage renewal: 2026.07 ~ 2026.09
+- Homepage renewal: 2026.07 ~ 2026.08
 
 ## Technical Summary
 
